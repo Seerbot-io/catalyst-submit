@@ -1,0 +1,21 @@
+version: '3.8' 
+
+services:
+  seerbot-frontend:
+    build:
+      context: . 
+      dockerfile: Dockerfile 
+    
+    image: seerbot-app:latest
+    
+    ports:
+      - "3000:3005"
+      
+    container_name: seerbot-frontend
+    
+    restart: always
+    
+    environment:
+      - NODE_ENV=production 
+      - NEXT_PUBLIC_BASE_API_URL=https://api.seerbot.io/
+      - PORT=3005
